@@ -5,9 +5,13 @@ on:
       - main
 
 jobs:
-  test:
+  checkout_and_test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Test frontend codebase
+      - name: Checkout the frontend codebase
+        uses: actions/checkout@v2
+
+      - name: Test with Jest
         uses: ./.github/workflows/test.yml
+        with:
+          entry-point: ./docker-exp-app
