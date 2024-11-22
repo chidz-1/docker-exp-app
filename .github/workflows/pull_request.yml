@@ -8,5 +8,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Test frontend codebase
         uses: ./.github/workflows/test.yml
