@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test with Jest
-        uses: ./.github/workflows/test.yml
+        uses: .github/workflows/test.yml
