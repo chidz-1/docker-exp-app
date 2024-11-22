@@ -1,0 +1,12 @@
+name: Testing Frontend Code
+on:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_ACCESS_TOKEN }}
+      - run: docker build -t chiedu/frontend-build-for-test -f ./Dockerfile.dev .
+      - run: docker run -e CI=true chiedu/frontend-build-for-test npm run test
