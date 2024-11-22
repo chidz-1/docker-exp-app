@@ -8,10 +8,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_ACCESS_TOKEN }}
-      - run: docker build -t chiedu/section-6 -f Dockerfile.dev .
-      - run: docker run -e CI=true chiedu/section-6 npm test
+      # Frontend code-base workflow test first
+      - uses: ./.github/test.yml
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
