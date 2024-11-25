@@ -1,0 +1,13 @@
+name: Pull Request Workflow
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  checkout_and_test:
+    name: Test with Jest
+    uses: ./.github/workflows/test.yml
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_ACCESS_TOKEN: ${{ secrets.DOCKER_ACCESS_TOKEN }}
