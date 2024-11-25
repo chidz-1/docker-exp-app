@@ -6,7 +6,5 @@ on:
 
 jobs:
   checkout_and_test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test with Jest
-        uses: .github/workflows/test.yml
+    name: Test with Jest
+    uses: ./.github/workflows/test.yml
