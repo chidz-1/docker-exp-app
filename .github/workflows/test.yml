@@ -1,6 +1,13 @@
 name: Testing Frontend Code
 on:
   workflow_call:
+    secrets:
+      DOCKER_USERNAME:
+        description: "Docker hub username"
+        required: true
+      DOCKER_ACCESS_TOKEN:
+        description: "Docker hub password"
+        required: true
 
 jobs:
   test:
